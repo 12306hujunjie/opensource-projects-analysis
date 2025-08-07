@@ -1,8 +1,8 @@
-# Python Web 框架源代码分析
+# 开源项目源代码深度分析
 
 ## 🚀 项目简介
 
-这是一个深度分析主流 Python Web 框架源代码的技术文档库，包含了对 Django、FastAPI、Flask、Starlette 等框架的超深度技术解析。
+这是一个深度分析主流开源项目源代码的技术文档库，目前重点关注 Python Web 框架，包含了对 Django、FastAPI、Flask、Starlette 等框架的超深度技术解析，未来将扩展到更多开源项目的架构分析。
 
 ## 📚 文档结构
 
@@ -45,10 +45,16 @@
 - 设计模式
 - 生命周期分析
 
-### 其他框架（规划中）
+### 其他项目（规划中）
 
+#### Python Web 框架
 - **Django** - 全栈框架深度解析
 - **Starlette** - ASGI 框架底层分析
+
+#### 其他开源项目
+- **数据库项目** - SQLAlchemy、Django ORM 等
+- **异步框架** - AsyncIO 生态项目
+- **工具库** - 常用 Python 工具库分析
 
 ## 🎯 文档特色
 
