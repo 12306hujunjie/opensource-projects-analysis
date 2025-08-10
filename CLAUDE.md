@@ -140,8 +140,9 @@ For large projects, we do not aim to generate a single, monolithic document. Ins
 - **Modular Independence**: Each analysis module should be highly cohesive and learnable as a standalone unit of knowledge. The documents within a module should build upon each other to provide a complete, in-depth analysis of a complex subsystem.
 - **Sequential Narrative**: The documents within a module must follow a predefined narrative order to ensure logical coherence.
 - **Naming Convention**:
-    - **Module Folder**: `{ProjectName}-{AnalysisModuleName}/` (e.g., `FastAPI-DependencyInjection/`)
-    - **Documents within Module**: `01-L1-Architecture-Overview.md`, `02-L2-Core-Workflow.md`, `03-L3-Implementation-Details.md`, `04-L4-Design-Philosophy.md` (using numeric and layer prefixes to ensure order and clarity).
+    - **Module Folder**: `{ProjectName}-{AnalysisModuleNameInChinese}/` (e.g., `FastAPI-依赖注入/`). The module name should be in Chinese.
+    - **Documents within Module**: `{NumericPrefix}-L{Layer}-{DocumentNameInChinese}.md` (e.g., `01-L1-架构总览.md`, `02-L2-核心工作流.md`). The document's descriptive name should be in Chinese. Use numeric and layer prefixes to ensure order and clarity.
+    - **Document Title**: The level-one heading (`#`) inside the document should match the file name's descriptive part (without prefix and extension). For example, the title for `01-L1-架构总览.md` should be `# 架构总览`.
 - **Pitfalls to Avoid**:
     - ❌ **Do not equate a "module" with a "single file"**.
     - ❌ Avoid disordered documents within a module, which breaks the logical progression.
