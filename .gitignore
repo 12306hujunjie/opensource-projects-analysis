@@ -86,3 +86,6 @@ ENV/
 
 # Claude
 .claude/
+
+# Web bundles
+web-bundles/
