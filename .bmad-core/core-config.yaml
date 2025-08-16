@@ -8,7 +8,7 @@ prd:
 architecture:
   architectureFile: docs/architecture.md
   architectureVersion: v4
-  architectureSharded: false
+  architectureSharded: true
   architectureShardedLocation: docs/architecture
 customTechnicalDocuments: null
 devLoadAlwaysFiles:

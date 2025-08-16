@@ -1,0 +1,228 @@
+# SuperClaude Framework Auto-Analysis Configuration
+# 自动分析配置文件
+
+# 基本配置
+analysis:
+  # 默认分析深度 (1-5)
+  default_depth: 5
+  
+  # 支持的项目类型
+  supported_types:
+    - framework
+    - library
+    - application
+    - plugin
+    - tool
+  
+  # 并行分析配置
+  parallel:
+    enabled: true
+    max_workers: 4
+    timeout: 3600  # 1小时超时
+
+# SuperClaude命令配置
+superclaude:
+  # 基础命令标志
+  base_flags:
+    - "--ultra-think"
+    - "--seq"
+  
+  # 分析命令配置
+  commands:
+    architecture:
+      command: "/analyze"
+      flags: ["--focus", "architecture", "--scope", "system"]
+      timeout: 1800
+    
+    security:
+      command: "/analyze"
+      flags: ["--focus", "security", "--scope", "system"]
+      timeout: 1200
+    
+    quality:
+      command: "/analyze"  
+      flags: ["--focus", "quality", "--scope", "system"]
+      timeout: 1200
+    
+    performance:
+      command: "/analyze"
+      flags: ["--focus", "performance", "--scope", "system"]
+      timeout: 900
+
+  # MCP服务器配置
+  mcp_servers:
+    serena:
+      enabled: true
+      priority: 1
+      use_for: ["structure", "symbols", "references"]
+    
+    sequential:
+      enabled: true
+      priority: 2
+      use_for: ["reasoning", "analysis", "insights"]
+    
+    context7:
+      enabled: true
+      priority: 3
+      use_for: ["documentation", "patterns", "standards"]
+    
+    magic:
+      enabled: false
+      priority: 4
+      use_for: ["ui", "components"]
+
+# 文档模板配置
+documentation:
+  # 输出格式
+  format: "markdown"
+  encoding: "utf-8"
+  
+  # 文档层级配置
+  levels:
+    L1:
+      name: "架构概览"
+      description: "整体架构和核心技术洞察"
+      required_sections: ["概述", "技术架构", "核心亮点", "价值分析"]
+      min_lines: 300
+    
+    L2:
+      name: "基础设施"
+      description: "CLI基础设施、安装架构、框架核心"
+      required_sections: ["基础架构", "实现细节", "技术特性"]
+      min_lines: 400
+    
+    L3:
+      name: "核心系统"  
+      description: "命令系统、MCP集成、角色系统、安全框架"
+      required_sections: ["系统设计", "核心功能", "集成模式"]
+      min_lines: 500
+    
+    L4:
+      name: "高级特性"
+      description: "智能路由、质量体系"
+      required_sections: ["高级功能", "智能特性", "企业级能力"]
+      min_lines: 600
+    
+    L5:
+      name: "创新总结"
+      description: "设计哲学、技术创新"
+      required_sections: ["设计理念", "技术突破", "行业价值"]
+      min_lines: 700
+
+  # 文档命名模式
+  naming:
+    pattern: "{level:02d}-{category}-{name}.md"
+    categories:
+      L1: "L1"
+      L2: "L2" 
+      L3: "L3"
+      L4: "L4"
+      L5: "L5"
+
+# Git配置
+git:
+  # 自动提交配置
+  auto_commit:
+    enabled: true
+    message_template: |
+      feat: 完成{project_name}深度源码分析
+      
+      🔍 Ultra-Think 级别分析成果:
+      • {doc_count}个L1-L{depth}级别文档，总计{total_lines}+行深度分析
+      • {insights_count}个核心技术洞察
+      • {architecture_analysis}架构分析
+      • {security_analysis}安全分析
+      • {quality_analysis}质量分析
+      
+      📚 文档结构:
+      {doc_structure}
+      
+      🎯 技术洞察价值:
+      {value_summary}
+      
+      🤖 Generated with [Claude Code](https://claude.ai/code)
+      
+      Co-Authored-By: Claude <noreply@anthropic.com>
+  
+  # 推送配置
+  auto_push:
+    enabled: true
+    remote: "origin"
+    branch: "main"
+
+# 质量检查配置
+quality:
+  # 最小质量要求
+  minimum_requirements:
+    doc_count: 5
+    total_lines: 2000
+    sections_per_doc: 3
+  
+  # 检查项目
+  checks:
+    - name: "文档完整性"
+      description: "检查所有必需的文档是否生成"
+      enabled: true
+    
+    - name: "内容质量"
+      description: "检查文档内容是否达到最小行数要求"
+      enabled: true
+    
+    - name: "结构一致性"
+      description: "检查文档结构是否符合模板要求"
+      enabled: true
+    
+    - name: "技术准确性"
+      description: "检查技术描述的准确性"
+      enabled: false  # 需要人工检查
+
+# 输出配置
+output:
+  # 详细程度
+  verbosity: "normal"  # quiet, normal, verbose, debug
+  
+  # 日志配置
+  logging:
+    enabled: true
+    level: "INFO"
+    file: "auto-analysis.log"
+  
+  # 进度显示
+  progress:
+    show_progress_bar: true
+    show_time_estimates: true
+    show_step_details: true
+
+# 项目特定配置
+project_types:
+  framework:
+    focus_areas: ["architecture", "security", "extensibility", "performance"]
+    required_analysis: ["core_components", "plugin_system", "api_design"]
+    special_sections: ["extension_points", "migration_guide"]
+  
+  library:
+    focus_areas: ["api", "performance", "compatibility", "documentation"]  
+    required_analysis: ["public_api", "usage_patterns", "dependencies"]
+    special_sections: ["api_reference", "examples", "best_practices"]
+  
+  application:
+    focus_areas: ["architecture", "user_experience", "performance", "security"]
+    required_analysis: ["business_logic", "data_flow", "user_interface"]
+    special_sections: ["user_guide", "deployment", "configuration"]
+
+# 扩展配置
+extensions:
+  # 自定义分析器
+  custom_analyzers:
+    enabled: false
+    directory: "custom_analyzers"
+  
+  # 插件支持
+  plugins:
+    enabled: false
+    directory: "plugins"
+  
+  # 外部工具集成
+  external_tools:
+    enabled: false
+    tools: []
